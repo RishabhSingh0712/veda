@@ -22,7 +22,7 @@ a{color:inherit;text-decoration:none}
 .logo-mark{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#041018;background:conic-gradient(from 140deg,var(--teal),var(--pink),var(--yellow),#bfc0c3);box-shadow:0 10px 30px rgba(7,191,207,0.06)}
 .nav-links{display:flex;gap:18px;align-items:center}
 .nav-links a{font-size:14px;color:rgba(230,238,246,0.9)}
-.cta-small{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--teal));font-weight:700;color:white;box-shadow:0 10px 30px rgba(124,58,237,0.12)}
+/* .cta-small{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--teal));font-weight:700;color:white;box-shadow:0 10px 30px rgba(124,58,237,0.12)} */
 
 /* HERO */
 .hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:66px}
@@ -86,3 +86,47 @@ a{color:inherit;text-decoration:none}
   .nav-links{display:none}
   .logo-mark{width:40px;height:40px}
 }
+.nav-links {
+  display: flex;
+  gap: 14px;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  position: relative;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-links a.active {
+  color: #ed3b64; /* pink */
+  font-weight: 700;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;   /* pink line */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ed3b64; 
+  border-radius: 2px;
+}
+
+.nav-links a.active::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;   /* orange line below pink */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: orange;
+  border-radius: 2px;
+}
+

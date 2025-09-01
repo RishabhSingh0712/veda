@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
       setTimeout(()=> m.remove(), 4000);
     });
   }
+// Highlight active nav link based on current page
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-links a");
+  navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add("active");
+    }
+  });
+});
+
 
   // GSAP: logo intro on index page
   if(typeof gsap !== 'undefined'){
@@ -94,7 +104,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   if(form){
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
-      alert('Thanks! Demo form submitted. To receive messages live I can connect Formspree or Netlify Functions — tell me which you prefer.');
+      alert('Thank Your for reaching out! We will get back to you soon.');
       form.reset();
     });
   }
