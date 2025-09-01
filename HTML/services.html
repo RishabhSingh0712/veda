@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VEDA VFX — Services</title>
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <nav class="navbar"><div class="nav-inner container"><div class="brand"><div class="logo-mark">V</div><div style="font-weight:700">VEDA <span style="color:var(--pink)">VFX</span></div></div>
+  <div style="display:flex;gap:14px"><a href="index.html">Home</a><a href="projects.html">Work</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div></nav>
+
+  <main style="padding-top:90px">
+    <section class="section container">
+      <div class="section-head"><h2>Services</h2><p class="lead-muted">End-to-end picture post & virtual production</p></div>
+      <div class="grid-3">
+        <div class="card reveal"><h3>Rotoscoping</h3><p style="color:var(--muted);margin-top:8px">High-precision mattes for compositing.</p></div>
+        <div class="card reveal"><h3>Paint & Prep</h3><p style="color:var(--muted);margin-top:8px">Wire/marker removal and plate cleanup.</p></div>
+        <div class="card reveal"><h3>Compositing</h3><p style="color:var(--muted);margin-top:8px">Creative and technical compositing workflows.</p></div>
+        <div class="card reveal"><h3>Matchmove</h3><p style="color:var(--muted);margin-top:8px">Camera/object tracking & rotomation.</p></div>
+        <div class="card reveal"><h3>CG & FX</h3><p style="color:var(--muted);margin-top:8px">Photoreal simulations, set extensions & lookdev.</p></div>
+        <div class="card reveal"><h3>Virtual Production</h3><p style="color:var(--muted);margin-top:8px">LED stage prep & real-time compositing.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modalRoot"></div>
+  <footer class="site-footer">© <span id="year"></span> VEDA VFX Studio</footer>
+
+  <script>window.gsap = gsap; window.ScrollTrigger = ScrollTrigger; gsap.registerPlugin(ScrollTrigger);</script>
+  <script src="../JS/main.js"></script>
+  <script>document.getElementById('year').innerText = new Date().getFullYear();</script>
+</body>
+</html>
+
