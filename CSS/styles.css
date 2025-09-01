@@ -29,6 +29,29 @@ body::before {
   z-index: -1;        
 }
 
+.member-photo {
+  height: 120px;
+  width: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #111; /* fallback */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;  /* photo crop होकर सही दिखे */
+  transition: transform 0.3s ease;
+}
+
+.member-photo img:hover {
+  transform: scale(1.05); /* हल्का zoom hover पर */
+}
+
 
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#e8eef6;background:linear-gradient(180deg,#020204 0%, #07070a 100%);}
