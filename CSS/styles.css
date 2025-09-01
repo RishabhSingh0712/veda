@@ -11,8 +11,8 @@
 }
 body {
   background: url("../assets/VEDA\ LOGO.png") center center no-repeat;
-  background-size: 600px;   /* logo size control */
-  opacity: 0.95;            /* पूरे content को transparent न करो */
+  background-size: 600px;   
+  opacity: 0.95;            
 }
 
 /* Logo faint dikhाने के लिए pseudo-element */
@@ -25,8 +25,8 @@ body::before {
   bottom: 0;
   background: url("../assets/VEDA\ LOGO.png") center center no-repeat;
   background-size: 600px;
-  opacity: 0.05;       /* बहुत हल्का दिखे */
-  z-index: -1;         /* पीछे रहे */
+  opacity: 0.05;       
+  z-index: -1;        
 }
 
 
