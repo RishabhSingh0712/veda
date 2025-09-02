@@ -2,17 +2,22 @@ from flask import Flask, request, jsonify
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from flask_cors import CORS  
+from flask_cors import CORS
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
 # ---------- Email Config ----------
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
-SENDER_EMAIL = "noreplyvedavfx@gmail.com"       
-SENDER_PASS = "tjbe ajwl qpwv adsm"         
-CEO_EMAIL = "vedavfxstudio@gmail.com"        
+SMTP_SERVER = os.getenv("SMTP_SERVER")
+SMTP_PORT = int(os.getenv("SMTP_PORT"))
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASS = os.getenv("SENDER_PASS")
+CEO_EMAIL = os.getenv("CEO_EMAIL")
 
 @app.route("/api/contact", methods=["POST"])
 def contact():
@@ -46,11 +51,13 @@ def contact():
         server.sendmail(SENDER_EMAIL, CEO_EMAIL, msg.as_string())
         server.quit()
 
-        return jsonify({"status": "success", "message": "Thank you for connecting with VEDA VFX.Your inquiry has been received, and our team will respond shortly."}), 200
+        return jsonify({
+            "status": "success",
+            "message": "Thank you for connecting with VEDA VFX. Your inquiry has been received, and our team will respond shortly."
+        }), 200
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
