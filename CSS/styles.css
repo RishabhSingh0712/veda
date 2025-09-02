@@ -276,3 +276,26 @@ a{color:inherit;text-decoration:none}
     display: block;
   }
 }
+/* Default (Laptop/Desktop) */
+.brand-logo {
+  height: 220px;   /* bada logo laptop ke liye */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .brand-logo {
+    height: 120px;  /* tablet pe thoda chhota */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 135px;
+    margin-top: -55px;   /* mobile pe aur chhota */
+  }
+}
+

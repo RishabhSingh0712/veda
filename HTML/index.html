@@ -8,105 +8,43 @@
     <!-- GSAP and ScrollTrigger -->
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-
-    <style>
-      /* ----------- Navbar Styling ----------- */
-      .navbar {
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: #000; /* optional */
-        z-index: 999;
-      }
-      .nav-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 20px;
-      }
-
-      /* Logo responsive */
-      .logo-mark img {
-        max-height: 60px;
-        width: auto;
-      }
-
-      /* Desktop nav-links */
-      .nav-links {
-        display: flex;
-        gap: 20px;
-      }
-      .nav-links a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      /* Mobile Menu Button */
-      .menu-toggle {
-        display: none;
-        font-size: 28px;
-        background: none;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      /* Responsive Navbar */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-          flex-direction: column;
-          background: #111;
-          position: absolute;
-          top: 70px;
-          right: 20px;
-          padding: 15px;
-          border-radius: 8px;
-          width: 200px;
-          text-align: right;
-        }
-
-        .nav-links.show {
-          display: flex;
-        }
-
-        .menu-toggle {
-          display: block;
-        }
-      }
-    </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="nav-inner container">
-        <div class="brand">
-          <div class="logo-mark">
-            <img src="../assets/VEDA1_png.png" alt="VEDA VFX Logo" />
-          </div>
-        </div>
-
-        <!-- Navigation links -->
-        <div class="nav-links" id="navLinks">
-          <a href="index.html" class="active">Home</a>
-          <a href="projects.html">Work</a>
-          <a href="services.html">Services</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-          ☰
-        </button>
+   <nav class="navbar">
+  <div class="nav-inner container">
+    <!-- Brand / Logo -->
+    <div class="brand">
+      <div class="logo-mark">
+        <img src="../assets/VEDA1_png.png" alt="VEDA VFX Logo" class="brand-logo" />
       </div>
-    </nav>
+    </div>
+
+    <!-- Navigation links -->
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">☰</button>
+  </div>
+</nav>
+
+
 
     <!-- HERO -->
     <header id="home" class="hero">
-      <video autoplay muted loop playsinline aria-hidden="true">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        <!-- poster="assets/hero-poster.jpg" -->
+        aria-hidden="true"
+      >
         <source src="../assets/hero.mp4" type="video/mp4" />
       </video>
       <div class="vignette"></div>
@@ -124,39 +62,175 @@
         <div class="hero-actions">
           <a class="btn-primary" href="projects.html">Watch Showreel</a>
           <a class="btn-ghost" href="contact.html">Get a Quote</a>
+          <!-- <a class="btn-ghost" href="/mnt/data/VEDAVFX PROFILE.pdf (1).pdf" target="_blank">Download Profile</a> -->
+        </div>
+
+        <div style="margin-top: 18px; display: flex; gap: 12px">
+          <div
+            style="
+              background: var(--card-bg);
+              padding: 10px 12px;
+              border-radius: 10px;
+              text-align: center;
+            "
+          >
+            <div style="font-weight: 800">+15</div>
+            <div style="font-size: 12px; color: var(--muted)">Ad Films</div>
+          </div>
+          <div
+            style="
+              background: var(--card-bg);
+              padding: 10px 12px;
+              border-radius: 10px;
+              text-align: center;
+            "
+          >
+            <div style="font-weight: 800">+15</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Feature Films
+            </div>
+          </div>
+          <div
+            style="
+              background: var(--card-bg);
+              padding: 10px 12px;
+              border-radius: 10px;
+              text-align: center;
+            "
+          >
+            <div style="font-weight: 800">+10</div>
+            <div style="font-size: 12px; color: var(--muted)">Series & Web</div>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container" style="text-align: center;">
-        © <span id="year"></span> VEDA VFX Studio <br />
-        <a
-          href="https://rishabhsingh7.netlify.app/"
-          target="_blank"
-          style="color: var(--pink); text-decoration: none; font-size: 14px;"
-        >
-          Made by Rishabh Singh
-        </a>
+    <!-- Services preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Capabilities</h2>
+          <p class="lead-muted">
+            Rotoscoping • Paint • Compositing • Matchmove • CGI 
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="card reveal">
+            <h3 style="margin: 0 0 8px">Compositing</h3>
+            <p style="margin: 0; color: var(--muted)">
+              Seamless integration of live action and CG — color, grain and
+              stereo-aware.
+            </p>
+          </div>
+          <div class="card reveal">
+            <h3 style="margin: 0 0 8px">Roto & Paint</h3>
+            <p style="margin: 0; color: var(--muted)">
+              High-precision mattes and frame-by-frame cleanup at scale.
+            </p>
+          </div>
+          <div class="card reveal">
+            <h3 style="margin: 0 0 8px">Matchmove & CG</h3>
+            <p style="margin: 0; color: var(--muted)">
+              Accurate tracking, photoreal CG and sims integration.
+            </p>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
 
+    <!-- Projects (small preview) -->
+    <section class="section" id="work-preview">
+      <div class="container">
+        <div class="section-head">
+          <h2>Selected Work</h2>
+          <p class="lead-muted">Feature films • Series • Ads</p>
+        </div>
+
+        <div class="projects-grid reveal">
+          <div
+            class="proj"
+            data-title="CITADEL HONEY BUNNY"
+            data-desc="Roto, Prep, & Compositing."
+            data-img="../assets/pr2.jpeg"
+          >
+            <div
+              class="thumb"
+              style="background-image: url('../assets/pr2.jpeg')"
+            ></div>
+            <div class="meta">
+              <div class="title">CITADEL HONEY BUNNY</div>
+              <div class="sub">Series</div>
+            </div>
+          </div>
+
+          <div
+            class="proj"
+            data-title="IB71"
+            data-desc="Roto, Prep & Compositing."
+            data-img="../assets/pr10.jpeg"
+          >
+            <div
+              class="thumb"
+              style="background-image: url('../assets/pr10.jpeg')"
+            ></div>
+            <div class="meta">
+              <div class="title">IB71</div>
+              <div class="sub">Feature Film</div>
+            </div>
+          </div>
+
+          <div
+            class="proj"
+            data-title="GUMRAAH"
+            data-desc="Roto, Prep & Compositing."
+            data-img="../assets/pr8.jpeg"
+          >
+            <div
+              class="thumb"
+              style="background-image: url('../assets/pr8.jpeg')"
+            ></div>
+            <div class="meta">
+              <div class="title">GUMRAAH</div>
+              <div class="sub">Series</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px">
+          <a class="btn-ghost" href="projects.html">See all projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- partners -->
+    <section class="section">
+      <div class="container">
+        <h3 style="margin-bottom: 12px">Partners & Collaborations</h3>
+        <div id="partners" class="partners">
+          <div class="partner">TrueLightvfx Studio Pvt. Ltd.</div>
+        </div>
+      </div>
+    </section>
+
+  <footer class="site-footer">
+  <div class="container" style="text-align: center;">
+    © <span id="year"></span> VEDA VFX Studio <br />
+    <a href="https://rishabhsingh7.netlify.app/" target="_blank" style="color: var(--pink); text-decoration: none; font-size: 14px;">
+      Made by Rishabh Singh
+    </a>
+  </div>
+</footer>
+
+
+    <div id="modalRoot"></div>
     <script>
       window.gsap = gsap;
       window.ScrollTrigger = ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
-
-      // Navbar toggle
-      const menuToggle = document.getElementById("menuToggle");
-      const navLinks = document.getElementById("navLinks");
-
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-      });
-
-      document.getElementById("year").innerText = new Date().getFullYear();
     </script>
     <script src="../JS/main.js"></script>
+    <script>
+      document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
   </body>
 </html>
