@@ -10,9 +10,9 @@ CORS(app)
 # ---------- Email Config ----------
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-SENDER_EMAIL = "noreplyfingo@gmail.com"       
-SENDER_PASS = "ijsp kliw rqwg jyng"         
-CEO_EMAIL = "rishabhraipur40@gmail.com"        
+SENDER_EMAIL = "noreplyvedavfx@gmail.com"       
+SENDER_PASS = "tjbe ajwl qpwv adsm"         
+CEO_EMAIL = "vedavfxstudio@gmail.com"        
 
 @app.route("/api/contact", methods=["POST"])
 def contact():
