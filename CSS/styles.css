@@ -52,6 +52,47 @@ body::before {
   transform: scale(1.05); /* हल्का zoom hover पर */
 }
 
+/* Center alignment for leadership section */
+.team-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Founder card bigger */
+.member.founder {
+  text-align: center;
+  max-width: 300px; /* card width */
+}
+
+.member-photo {
+  height: 180px;
+  width: 145px;
+  overflow: hidden;
+  margin: 0 auto 16px auto;
+  border: 3px solid var(--pink);
+  box-shadow: 0 0 20px rgba(237, 59, 100, 0.3);
+}
+
+.member-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.member-name {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+
+.member-role {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
 
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#e8eef6;background:linear-gradient(180deg,#020204 0%, #07070a 100%);}
