@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if(form){
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
-      alert('Thank Your for reaching out! We will get back to you soon.');
       form.reset();
     });
   }

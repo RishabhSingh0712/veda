@@ -226,6 +226,26 @@
 
 
       document.getElementById("year").innerText = new Date().getFullYear();
+      document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = {
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    message: this.message.value
+  };
+
+  const res = await fetch("http://127.0.0.1:5000/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  alert(result.message);
+});
+
     </script>
     <script src="../JS/main.js"></script>
   </body>
