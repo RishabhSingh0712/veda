@@ -15,7 +15,6 @@ body {
   opacity: 0.95;            
 }
 
-/* Logo faint dikhाने के लिए pseudo-element */
 body::before {
   content: "";
   position: fixed;
@@ -35,7 +34,7 @@ body::before {
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 12px;
-  background: #111; /* fallback */
+  background: #111;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,12 +43,12 @@ body::before {
 .member-photo img {
   height: 100%;
   width: 100%;
-  object-fit: cover;  /* photo crop होकर सही दिखे */
+  object-fit: cover;  
   transition: transform 0.3s ease;
 }
 
 .member-photo img:hover {
-  transform: scale(1.05); /* हल्का zoom hover पर */
+  transform: scale(1.05); 
 }
 
 /* Center alignment for leadership section */
@@ -63,7 +62,7 @@ body::before {
 /* Founder card bigger */
 .member.founder {
   text-align: center;
-  max-width: 300px; /* card width */
+  max-width: 300px; 
 }
 
 .member-photo {
@@ -187,14 +186,14 @@ a{color:inherit;text-decoration:none}
 }
 
 .nav-links a.active {
-  color: #ed3b64; /* pink */
+  color: #ed3b64; 
   font-weight: 700;
 }
 
 .nav-links a.active::after {
   content: "";
   position: absolute;
-  bottom: -4px;   /* pink line */
+  bottom: -4px;   
   left: 0;
   right: 0;
   height: 2px;
@@ -205,7 +204,7 @@ a{color:inherit;text-decoration:none}
 .nav-links a.active::before {
   content: "";
   position: absolute;
-  bottom: -8px;   /* orange line below pink */
+  bottom: -8px;   
   left: 0;
   right: 0;
   height: 2px;
@@ -213,3 +212,67 @@ a{color:inherit;text-decoration:none}
   border-radius: 2px;
 }
 
+/* Base Navbar */
+.navbar {
+  background: #0b0b0f;
+  padding: 14px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--pink);
+}
+
+/* Menu Button (hidden by default on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    display: none;
+    border-radius: 8px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

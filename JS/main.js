@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
       setTimeout(()=> m.remove(), 4000);
     });
   }
+  const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
 // Highlight active nav link based on current page
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-links a");
