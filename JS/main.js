@@ -1,6 +1,3 @@
-/* main.js - shared JS: GSAP animations, ScrollReveal logic and small interactions */
-/* CDN: GSAP (registered in HTML) - ensure <script src="https://unpkg.com/gsap/dist/gsap.min.js"></script> and ScrollTrigger loaded */
-
 document.addEventListener('DOMContentLoaded', ()=> {
   // small helpers
   const select = s=> document.querySelector(s);

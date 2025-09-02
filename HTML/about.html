@@ -7,111 +7,139 @@
     <link rel="stylesheet" href="../CSS/styles.css" />
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <style>
+      /* Extra responsive tweaks */
+      .about-heading {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .about-text {
+        color: var(--muted);
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .team-grid {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .member.founder {
+        text-align: center;
+        max-width: 350px;
+      }
+
+      .member-photo {
+        height: 180px;
+        width: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 16px auto;
+        border: 3px solid var(--pink);
+        box-shadow: 0 0 20px rgba(237, 59, 100, 0.3);
+      }
+
+      .member-photo img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .member-name {
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-top: 8px;
+      }
+
+      .member-role {
+        color: var(--muted);
+        font-size: 1rem;
+        margin-top: 4px;
+      }
+
+      .founder-details {
+        margin-top: 20px;
+        text-align: center;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .about-text,
+        .founder-details {
+          padding: 0 15px;
+          text-align: justify;
+        }
+      }
+    </style>
   </head>
   <body>
-   <nav class="navbar">
-  <div class="nav-inner container">
-    <div class="brand">
-      <div class="logo-mark">
-        <img src="../assets/Logo.png" alt="VEDA VFX Logo" style="height: 28px" />
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-inner container">
+        <div class="brand">
+          <div class="logo-mark">
+            <img src="../assets/Logo.png" alt="VEDA VFX Logo" style="height: 28px" />
+          </div>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Work</a>
+          <a href="services.html">Services</a>
+          <a href="about.html" class="active">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">☰</button>
       </div>
-    </div>
-
-    <!-- Navigation links -->
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Work</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-      ☰
-    </button>
-  </div>
-</nav>
+    </nav>
 
     <main style="padding-top: 90px">
+      <!-- About Section -->
       <section class="section container">
-        <div class="section-head">
-          <h2>About VEDA VFX</h2>
-          <!-- <p class="lead-muted">
-            Crafting cinematic visuals with technology & storytelling
-          </p> -->
-        </div>
-        <div
-          style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-          "
-        >
-          <div>
-            <p style="color: var(--muted)">
-             VEDA VFX is a team of professional artists whose
-expertise lies in Visual Effects and Motion Graphics for
-films, commercials and television. Located in Lucknow,
-our creative and technical services cater to the
-Entertainment and Media industries.
-VEDA VFX Thinking Cell is a fully self-contained production suite
-drawing in skilled artists, cutting- edge production techniques and
-expert use of VFX CGI and Motion Graphics to great effect. The
-team are on hand to help you realise the true potential of your
-creative visions. We start with you; your hopes, your expectations,
-your insights and your inside knowledge and only then can we
-begin to create together. VEDA VFX provides perfect solutions
-that meet VFX and Picture Post, meet schedules and of
-course,meet budgets.
-            </p>
-            <h3 style="margin-top: 16px">Our Vision</h3>
-            <p style="color: var(--muted)">
-              To create visuals that move audiences — combining craft,
-              technology and creative partnerships.
-            </p>
-          </div>
-          <!-- <div
-            style="
-              border-radius: 10px;
-              overflow: hidden;
-              border: 1px solid rgba(255, 255, 255, 0.04);
-              background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.01),
-                rgba(255, 255, 255, 0.02)
-              );
-            "
-          >
-            <img
-              src="../assets/Logo.png"
-              alt="Studio"
-              style="width: 50%; display: block"
-            />
-          </div> -->
-        </div>
+        <h2 class="about-heading">About</h2>
+        <p class="about-text">
+          VEDA VFX is a team of professional artists whose expertise lies in Visual Effects and
+          Motion Graphics for films, commercials and television. Located in Lucknow, our creative
+          and technical services cater to the Entertainment and Media industries. VEDA VFX Thinking
+          Cell is a fully self-contained production suite drawing in skilled artists, cutting-edge
+          production techniques and expert use of VFX CGI and Motion Graphics to great effect. The
+          team are on hand to help you realise the true potential of your creative visions.
+        </p>
       </section>
 
-     <section class="section container">
-  <div class="section-head">
-    <h2>Leadership</h2>
-    <p class="lead-muted">Experienced leads & supervisors</p>
-  </div>
-  <div class="team-grid reveal">
-    <div class="member founder">
-      <div class="member-photo">
-        <img src="../assets/raghu.jpeg" alt="Raghvendra Singh" />
-      </div>
-      <div class="member-name">Raghvendra Singh</div>
-      <div class="member-role">Founder</div>
-    </div>
-  </div>
-</section>
+      <!-- Leadership -->
+      <section class="section container">
+        <div class="team-grid reveal">
+          <div class="member founder">
+            <div class="member-photo">
+              <img src="../assets/raghu.jpeg" alt="Raghvendra Singh" />
+            </div>
+            <div class="member-name">Raghvendra Singh</div>
+            <div class="member-role">Founder</div>
+          </div>
+        </div>
 
+        <div class="founder-details">
+          Mr. Raghvendra Singh has been the CEO of VEDA VFX Studio Pvt. Ltd. since 2024.
+          He has seen immense success in a career spanning 08 years in Post Production
+          services. He was the Business Head (VFX) of TrueLight VFX Studio.
+        </div>
+      </section>
     </main>
 
-    <div id="modalRoot"></div>
+    <!-- Footer -->
     <footer class="site-footer">
       © <span id="year"></span> VEDA VFX Studio
     </footer>
@@ -120,10 +148,16 @@ course,meet budgets.
       window.gsap = gsap;
       window.ScrollTrigger = ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
-    </script>
-    <script src="../JS/main.js"></script>
-    <script>
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
       document.getElementById("year").innerText = new Date().getFullYear();
     </script>
+    <script src="../JS/main.js"></script>
   </body>
 </html>
