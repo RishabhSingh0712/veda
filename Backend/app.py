@@ -53,7 +53,7 @@ def contact():
 
         return jsonify({
             "status": "success",
-            "message": "Thank you for connecting with VEDA VFX. Your inquiry has been received, and our team will respond shortly."
+            "message": "Thank you for connecting with VEDA VFX.Your inquiry has been received, and our team will respond shortly."
         }), 200
 
     except Exception as e:

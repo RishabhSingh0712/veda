@@ -16,7 +16,6 @@
         gap: 24px;
       }
 
-      /* Tablet view */
       @media (max-width: 1024px) {
         .contact-grid {
           grid-template-columns: 1fr 1fr;
@@ -24,12 +23,11 @@
         }
       }
 
-      /* Mobile view */
       @media (max-width: 768px) {
         .contact-grid {
           grid-template-columns: 1fr;
           gap: 30px;
-          text-align: center; /* Center align for mobile */
+          text-align: center;
         }
 
         .glass {
@@ -118,39 +116,73 @@
           border-bottom: none;
         }
       }
+
+      /* ---------- Loading Overlay ---------- */
+      #loadingOverlay {
+        display: none; /* hidden by default ✅ */
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      /* ---------- Toast Notification ---------- */
+      #toast {
+        position: fixed;
+        top: 20px; /* 👈 bottom ke jagah top use karo */
+        right: 20px; /* right corner */
+        background: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        z-index: 10000;
+      }
     </style>
   </head>
   <body>
     <!-- Navbar -->
-   <nav class="navbar">
-  <div class="nav-inner container">
-    <!-- Brand / Logo -->
-    <div class="brand">
-      <div class="logo-mark">
-        <img src="../assets/VEDA1_png.png" alt="VEDA VFX Logo" class="brand-logo" />
+    <nav class="navbar">
+      <div class="nav-inner container">
+        <div class="brand">
+          <div class="logo-mark">
+            <img
+              src="../assets/VEDA1_png.png"
+              alt="VEDA VFX Logo"
+              class="brand-logo"
+            />
+          </div>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Project</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="active">Contact</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          ☰
+        </button>
       </div>
-    </div>
-
-    <!-- Navigation links -->
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Project</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">☰</button>
-  </div>
-</nav>
+    </nav>
 
     <!-- Main -->
     <main style="padding-top: 90px">
       <section class="section container">
-        <div class="section-head" style="text-align:center;">
+        <div class="section-head" style="text-align: center">
           <h2>CONTACT</h2>
-          <p class="lead-muted">Share a brief — we’ll respond within one business day</p>
+          <p class="lead-muted">
+            Share a brief — we’ll respond within one business day
+          </p>
         </div>
 
         <!-- Contact Grid -->
@@ -177,7 +209,6 @@
                 placeholder="Your name"
                 required
               /><br /><br />
-
               <input
                 class="form-field"
                 type="email"
@@ -185,7 +216,6 @@
                 placeholder="Your email"
                 required
               /><br /><br />
-
               <input
                 class="form-field"
                 type="tel"
@@ -197,7 +227,6 @@
                 required
                 oninput="this.value=this.value.replace(/[^0-9]/g,'');"
               /><br /><br />
-
               <textarea
                 class="form-field"
                 name="message"
@@ -206,7 +235,6 @@
                 required
               ></textarea
               ><br /><br />
-
               <button class="form-submit" type="submit">Send Inquiry</button>
             </form>
           </div>
@@ -219,33 +247,72 @@
       © <span id="year"></span> VEDA VFX Studio
     </footer>
 
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">Please Wait...</div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
     <script>
       window.gsap = gsap;
       window.ScrollTrigger = ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
 
-
       document.getElementById("year").innerText = new Date().getFullYear();
-      document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
 
-  const data = {
-    name: this.name.value,
-    email: this.email.value,
-    phone: this.phone.value,
-    message: this.message.value
-  };
+      const form = document.getElementById("contactForm");
+      const overlay = document.getElementById("loadingOverlay");
+      const toast = document.getElementById("toast");
 
-  const res = await fetch("http://127.0.0.1:5000/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+      function showLoading() {
+        overlay.style.display = "flex"; // show overlay
+      }
+      function hideLoading() {
+        overlay.style.display = "none"; // hide overlay
+      }
+      function showToast(message, type = "success") {
+        toast.innerText = message;
+        toast.style.background = type === "success" ? "#4caf50" : "#f44336";
+        toast.style.opacity = "1";
+        setTimeout(() => {
+          toast.style.opacity = "0";
+        }, 4000);
+      }
 
-  const result = await res.json();
-  alert(result.message);
-});
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
 
+          const data = {
+            name: this.name.value,
+            email: this.email.value,
+            phone: this.phone.value,
+            message: this.message.value,
+          };
+
+          try {
+            showLoading();
+            const res = await fetch("http://127.0.0.1:5000/api/contact", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            const result = await res.json();
+            hideLoading();
+
+            if (result.status === "success") {
+              form.reset();
+              showToast(result.message, "success");
+            } else {
+              showToast("Something went wrong. Please try again.", "error");
+            }
+          } catch (err) {
+            hideLoading();
+            showToast("Server error: " + err.message, "error");
+          }
+        });
+      }
     </script>
     <script src="../JS/main.js"></script>
   </body>
